@@ -8,10 +8,10 @@ export function getUser() {
 
 
 
-// export function setUser(obj){
-//     const userString = JSON.stringify(obj);
-//     localStorage.setItem(USERS, userString);
-// }
+export function setUser(obj){
+    const userString = JSON.stringify(obj);
+    localStorage.setItem(USERS, userString);
+}
 
 export function searchUser(userName){
     const users = getUser();
@@ -21,8 +21,6 @@ export function searchUser(userName){
     }
 
 }
-
-
 
 export function createUser(formData){
     // if this doesn't check line 35 const = user
@@ -34,8 +32,7 @@ export function createUser(formData){
         const newUser = { username:userName, password:userPassword, todos:[] };
         user.push(newUser);
     }
-    const userString = JSON.stringify(user);
-    localStorage.setItem(USER, userString);
+    setUser();
 }
 
 
