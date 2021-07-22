@@ -26,7 +26,7 @@ export function searchUser(userName){
 
 export function createUser(formData){
     // if this doesn't check line 35 const = user
-    const user = getUser();
+    let user = getUser();
     const userName = formData.get('user-name');
     const userPassword = formData.get('password');
     const exist = searchUser(userName);
