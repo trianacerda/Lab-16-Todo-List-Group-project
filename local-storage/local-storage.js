@@ -1,21 +1,47 @@
 export const USERS = 'users';
-export function getLocalStorage() {
+
+export function getUser() {
     const DATA = localStorage.getItem(USER);
     const arrUsers = JSON.parse(arrUsers);
     return arrUsers;
 }
 
-export function setLocalStorage(userName, pWord){
-    let localData = getLocalStorage();
-    let newUser = {'user-name':userName, 'pass-word': pWord, 'to-dos': []};
-    localData.push(newUser); 
-    localStorage.setItem(USERS, JSON.stringify(localData))
+
+
+export function setUser(obj){
+
+    const userString = JSON.stringify(obj);
+
+    localStorage.push(USER, userString);
 }
 
-export function findByUser(items, id){
-    for (const item of items){
-        if (item.id === id) {
-            return item;
-        }
+
+//this creates a new user 
+//
+export function createUser(){
+
+    getUser();
+
+    for(let item of array){
+
+            if ( item.username === username ){
+
+                return false;
+            }
+            else {
+                
+                setUser();
+
+            }
     }
+
+}
+
+
+
+
+
+
+export function findByUser(){
+  
 }
