@@ -1,19 +1,40 @@
 export const USERS = 'users';
 
 export function getUser() {
-    const DATA = localStorage.getItem(USER);
-    const arrUsers = JSON.parse(arrUsers);
+    const DATA = localStorage.getItem(USERS || '[]');
+    const arrUsers = JSON.parse(DATA);
     return arrUsers;
 }
 
 
 
 export function setUser(obj){
-
     const userString = JSON.stringify(obj);
-
-    localStorage.push(USER, userString);
+    localStorage.setItem(USERS, userString);
 }
+
+export function searchUser(userName){
+    const users = getUser();
+    for (let user of users){
+        if (user.username === userName){
+        return user;}
+    }
+
+}
+
+export function createUser(formData){
+    // if this doesn't check line 35 const = user
+    let user = getUser();
+    const userName = formData.get('user-name');
+    const userPassword = formData.get('password');
+    const exist = searchUser(userName);
+    if (!exist){
+        const newUser = { username:userName, password:userPassword, todos:[] };
+        user.push(newUser);
+    }
+    setUser();
+}
+
 
 
 //this creates a new user 
