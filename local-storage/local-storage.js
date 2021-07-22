@@ -22,47 +22,16 @@ export function searchUser(userName){
 
 }
 
-export function createUser(formData){
-    // if this doesn't check line 35 const = user
+export function createUser(x, y){
     let user = getUser();
-    const userName = formData.get('user-name');
-    const userPassword = formData.get('password');
+    const userName = x;
+    const userPassword = y;
     const exist = searchUser(userName);
     if (!exist){
         const newUser = { username:userName, password:userPassword, todos:[] };
         user.push(newUser);
     }
+    return newUser;
+}
     setUser();
-}
 
-
-
-//this creates a new user 
-//
-export function createUser(){
-
-    getUser();
-
-    for(let item of array){
-
-            if ( item.username === username ){
-
-                return false;
-            }
-            else {
-                
-                setUser();
-
-            }
-    }
-
-}
-
-
-
-
-
-
-export function findByUser(){
-  
-}
